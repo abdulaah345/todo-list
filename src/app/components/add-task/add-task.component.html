@@ -1,0 +1,25 @@
+<div class="container">
+    
+    <h2 class="text-center">Add a New Task</h2>
+    <div class="mb-3">
+        <label for="name"  class="form-label">Task Name</label>
+        <input type="text" #name class="form-control" placeholder="Enter Task Name">
+    </div>
+    <div class="mb-3">
+        <label for="description"  class="form-label">Description</label>
+    
+        <textarea class="form-control" #description placeholder="Enter Description"></textarea>
+    </div>
+    <div class="mb-3">
+    
+        <label for="dueDate"  class="form-label">Due Date</label>
+        <input type="date" #dueDate class="form-control"  placeholder="dueDate" >
+    
+    </div>
+    <div class="d-grid gap-2">
+    <button class="btn btn-success" (click)="saveTask(name, description, dueDate)">Save</button>
+    <button class="btn btn-secondary" (click)="resetFields(name, description, dueDate)">Reset</button>
+     
+    <a class="btn btn-primary" routerLink="/" >Cancel</a>
+    </div>
+    </div>

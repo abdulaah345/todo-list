@@ -1,0 +1,68 @@
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+        <P>List of Tasks</P>
+        <footer class="blockquote-footer">No pain No gain</footer>
+    </blockquote>
+    <div *ngIf = "taskService.task.length == 0">
+        <p class="alert alert-danger">
+            No tasks for today
+        </p>
+    </div>
+
+<div *ngIf = "taskService.task.length != 0">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let task of taskService.task; index as i">
+                <!-- <a [routerLink]="['/task',i]"> -->
+                    <!-- <div *ngFor="let task of taskService.task"> -->
+
+                <div>
+                    <strong>Task Name:</strong> {{ task.name }}
+                </div>
+                <div>
+                    <strong>Description:</strong> {{ task.description }}
+                </div>
+                <div>
+                    <strong>Due Date:</strong> {{ task.dueDate }}
+                </div>
+            <!-- </div> -->
+
+                 <!-- </a> -->
+                         <div class="task-status">
+                        <input type="checkbox" [checked]="task.completed" (change)="toggleTaskStatus(i)">
+                        <label>Completed</label>
+                        </div>
+                 <button class="del-delete  btn btn-info" [routerLink]="['/task', i]">Edit</button>
+                 <!-- <app-task-status-indicator [status]="task.status"></app-task-status-indicator> -->
+
+                <button class="del-delete btn btn-danger" (click)="deleteTask(i)">Delete</button>
+            </li>
+        </ul>
+</div>
+<div>
+    <a routerLink="/add-task" class="form-control add-task-btn btn btn-secondary">Add Task</a>
+
+</div>
+<!-- <div class="author-box fade-in-box">
+    <div class="container">
+    <p>To Do List Project Using Angular</p>
+    <p>Create By :Abdallah Mohamed Mohamed</p>
+    </div>
+</div>
+</div> -->
+
+<!-- <div *ngFor="let task of tasks">
+    <div>
+      <strong>Task Name:</strong> {{ task.name }}
+    </div>
+    <div>
+      <strong>Description:</strong> {{ task.description }}
+    </div>
+    <div>
+      <strong>Due Date:</strong> {{ task.dueDate }}
+    </div>
+    <div>
+      <app-task-status-indicator [status]="task.status"></app-task-status-indicator>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </div>
+  </div> -->
